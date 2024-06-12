@@ -1,0 +1,22 @@
+\chapter{Conclusion}
+
+This thesis focuses on the modeling and control maneuver performance evaluation of an eVTOL aircraft, addressing critical aspects of aircraft modeling, simulation, and analysis.
+
+The initial chapter elucidates the fundamental principles of MBDyn, a multibody dynamics software package, and its application in airframe modeling. Leveraging MBDyn, a detailed model of the eVTOL aircraft was developed, considering its six degrees of freedom and the complexities of real-world flight dynamics. This chapter underscores the importance of modeling in predicting the aircraft's behavior, laying the groundwork for subsequent analysis.
+
+The integration of MBDyn and Simulink is outlined, with the Simulink control system including multi-copter PID controllers and a fixed-wing attitude controller using quaternions, optimized with a notch filter to reduce vibrations. The Total Energy Control System (TECS) manages airspeed and altitude efficiently. An optimized throttle command block enhances thrust and torque estimation, incorporating airflow effects while being computationally efficient.
+
+Chapter 3 evaluates the aircraft's maneuver performance, emphasizing the role of gust wind per ADS-33 standards. Flight tests under various gust conditions assessed stability, controllability, and predictability to enhance safety and operational capability. Gust wind verification used a clamp joint setup simulating force and moment responses across different orientations, with inputs along the x, y, and z axes. Results matched computational simulations, validating the aircraft's design against turbulent conditions. The gust test procedure addressed UAV-specific challenges, adhering to ADS-33 regulations.
+
+Transition control strategies between multi-copter and fixed-wing modes were explored. The process involved accelerating from hovering to fixed-wing flight, with control system activations and fixed-wing controller takeover. The proposed back transition strategy remains untested. Simulations showed minor altitude loss and velocity overshoot during transitions, with smooth performance during back transitions due to a conservative deceleration strategy.
+
+Maneuvering performance metrics included control power, attitude quickness, peak angular rate, and bandwidth. Pulse signal response simulations in roll, pitch, and yaw indicated slower maneuverability due to wing components.
+
+Based on the obtained results and their limitations, the following activities can be outlined for future work:
+\begin{itemize}
+    \item This research has modeled and evaluated future eVTOL aircraft. The MBDyn aircraft dynamics model is simplified in fuselage, motor, and rotor components, which could be improved with better physical model with MBDyn software upgrades to simulate a more realistic environment, thereby expanding MBDyn's application potential.
+    \item During the evaluation of gust wind in fixed-wing mode, the aircraft showed lower resistance. The control strategy in fixed-wing mode could be improved to better resist gusts, enabling operation in more complex environments.
+    \item Since all basic strategies including climb, transition, back transition, and landing have been completed, the aircraft could be tested in real environments in the future. Comparing real-world results with simulations will help improve the simulation system.
+\end{itemize}
+
+In conclusion, this thesis provides a comprehensive evaluation of the eVTOL aircraft's modeling and control performance, offering insights into future improvements and real-world applications.

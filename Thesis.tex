@@ -1,0 +1,269 @@
+% A LaTeX template for MSc Thesis submissions to 
+% Politecnico di Milano (PoliMi) - School of Industrial and Information Engineering
+%
+% S. Bonetti, A. Gruttadauria, G. Mescolini, A. Zingaro
+% e-mail: template-tesi-ingind@polimi.it
+%
+% Last Revision: October 2021
+%
+% Copyright 2021 Politecnico di Milano, Italy. NC-BY
+
+\documentclass{Configuration_Files/PoliMi3i_thesis}
+
+%------------------------------------------------------------------------------
+%	REQUIRED PACKAGES AND  CONFIGURATIONS
+%------------------------------------------------------------------------------
+
+% CONFIGURATIONS
+\usepackage{parskip} % For paragraph layout
+\usepackage{setspace} % For using single or double spacing
+\usepackage{emptypage} % To insert empty pages
+\usepackage{multicol} % To write in multiple columns (executive summary)
+\setlength\columnsep{15pt} % Column separation in executive summary
+\setlength\parindent{0pt} % Indentation
+\raggedbottom  
+
+% PACKAGES FOR TITLES
+\usepackage{titlesec}
+% \titlespacing{\section}{left spacing}{before spacing}{after spacing}
+\titlespacing{\section}{0pt}{3.3ex}{2ex}
+\titlespacing{\subsection}{0pt}{3.3ex}{1.65ex}
+\titlespacing{\subsubsection}{0pt}{3.3ex}{1ex}
+\usepackage{color}
+
+% PACKAGES FOR LANGUAGE AND FONT
+\usepackage[english]{babel} % The document is in English  
+\usepackage[utf8]{inputenc} % UTF8 encoding
+\usepackage[T1]{fontenc} % Font encoding
+\usepackage[11pt]{moresize} % Big fonts
+
+% PACKAGES FOR IMAGES
+\usepackage{graphicx}
+\usepackage{transparent} % Enables transparent images
+\usepackage{eso-pic} % For the background picture on the title page
+\usepackage{subfig} % Numbered and caption subfigures using \subfloat.
+\usepackage{tikz} % A package for high-quality hand-made figures.
+\usetikzlibrary{}
+\graphicspath{{./Images/}} % Directory of the images
+\usepackage{caption} % Coloured captions
+\usepackage{xcolor} % Coloured captions
+\usepackage{amsthm,thmtools,xcolor} % Coloured "Theorem"
+\usepackage{float}
+\usepackage{subfigure}
+
+% STANDARD MATH PACKAGES
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage[overload]{empheq} % For braced-style systems of equations.
+\usepackage{fix-cm} % To override original LaTeX restrictions on sizes
+
+% PACKAGES FOR TABLES
+\usepackage{tabularx}
+\usepackage{longtable} % Tables that can span several pages
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{rotating}
+
+% PACKAGES FOR ALGORITHMS (PSEUDO-CODE)
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% PACKAGES FOR REFERENCES & BIBLIOGRAPHY
+\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref} % Adds clickable links at references
+\usepackage{cleveref}
+\usepackage[square, numbers, sort&compress]{natbib} % Square brackets, citing references with numbers, citations sorted by appearance in the text and compressed
+% \bibliographystyle{abbrvnat} % You may use a different style adapted to your field
+\bibliographystyle{elsarticle-num-names}
+% OTHER PACKAGES
+\usepackage{pdfpages} % To include a pdf file
+\usepackage{afterpage}
+\usepackage{lipsum} % DUMMY PACKAGE
+\usepackage{fancyhdr} % For the headers
+\fancyhf{}
+
+% Input of configuration file. Do not change config.tex file unless you really know what you are doing. 
+\input{Configuration_Files/config}
+
+%----------------------------------------------------------------------------
+%	NEW COMMANDS DEFINED
+%----------------------------------------------------------------------------
+
+% EXAMPLES OF NEW COMMANDS
+\newcommand{\bea}{\begin{eqnarray}} % Shortcut for equation arrays
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\e}[1]{\times 10^{#1}}  % Powers of 10 notation
+
+%----------------------------------------------------------------------------
+%	ADD YOUR PACKAGES (be careful of package interaction)
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+%	ADD YOUR DEFINITIONS AND COMMANDS (be careful of existing commands)
+%----------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+%	BEGIN OF YOUR DOCUMENT
+%----------------------------------------------------------------------------
+
+\begin{document}
+
+\fancypagestyle{plain}{%
+\fancyhf{} % Clear all header and footer fields
+\fancyhead[RO,RE]{\thepage} %RO=right odd, RE=right even
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+
+%----------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------
+
+% \pagestyle{empty} % No page numbers
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the preamble pages
+
+\puttitle{
+	title= Modeling and Maneuverability Performance Analysis for eVTOL Aircraft, % Title of the thesis
+	name=Ruiyang Zhang, % Author Name and Surname
+	course=Aeronautical Engineering - Ingegneria Aeronautica, % Study Programme (in Italian)
+	ID  = 10829862,  % Student ID number (numero di matricola)
+	advisor= Prof. Pierangelo Masarati, % Supervisor name
+%	coadvisor={}, % Co-Supervisor name, remove this line if there is none
+	academicyear={2024-07}  % Academic Year
+} % These info will be put into your Title page 
+
+%----------------------------------------------------------------------------
+%	PREAMBLE PAGES: ABSTRACT (inglese e italiano), EXECUTIVE SUMMARY
+%----------------------------------------------------------------------------
+\startpreamble
+\setcounter{page}{1} % Set page counter to 1
+
+% ABSTRACT IN ENGLISH
+\chapter*{Abstract} 
+This thesis presents a comprehensive study on the maneuver performance, modeling, and control strategies of an eVTOL aircraft, focusing on its ability to operate safely and efficiently in various flight conditions. The research leverages MBDyn, a multibody dynamics software, to develop a detailed airframe model that captures the six degrees of freedom inherent to eVTOL operations. 
+
+The study is structured into three main chapters, each addressing a distinct yet interrelated aspect of eVTOL aircraft performance. Chapter 1 introduces the fundamental principles of MBDyn and discusses the setup and validation of the airframe model. Chapter 2 outlines the integration process between MBDyn and Simulink, detailing the control system architecture and its response to various maneuvers. Chapter 3 evaluates the maneuver performance of the eVTOL aircraft under gust wind conditions, adhering to ADS-33 guidelines, to ensure the aircraft's handling qualities and controllability.
+
+The research contributes to the field by providing an advanced airframe modeling framework, a robust control system integration methodology, and a thorough evaluation of maneuver performance. These contributions are significant for the design and control of future eVTOL aircraft, offering insights that can enhance flight safety and operational capability.
+
+The thesis concludes with recommendations for adopting advanced modeling tools, enhancing control system integration, and conducting rigorous performance testing. It emphasizes the importance of these strategies in advancing the aerospace engineering field and the development of autonomous flight systems.
+\\
+\\
+\textbf{Keywords:} eVTOL Aircraft, MBDyn, Simulink, Maneuver Performance, Control Strategies, Airframe Modeling, Flight Dynamics, Multibody Dynamics, UAV Design
+
+% ABSTRACT IN ITALIAN
+%\chapter*{Sommario} 
+%Questa tesi presenta uno studio esaustivo sulle prestazioni di manovra, modellazione e strategie di controllo di un aeromobile eVTOL, focalizzandosi sulla sua capacità di operare in modo sicuro ed efficiente in varie condizioni di volo. La ricerca si avvale di MBDyn, un software di dinamica multibody, per sviluppare un dettagliato modello di cellula aerodinamica che cattura i sei gradi di libertà intrinseci alle operazioni eVTOL.
+
+%Lo studio è strutturato in tre capitoli principali, ognuno dei quali affronta un aspetto distinto ma interrelato delle prestazioni dell'aeromobile eVTOL. Il Capitolo 1 introduce i principi fondamentali di MBDyn e discute l'impostazione e la convalida del modello di cellula aerodinamica. Il Capitolo 2 illustra il processo di integrazione tra MBDyn e Simulink, dettagliando l'architettura del sistema di controllo e la sua risposta a varie manovre. Il Capitolo 3 valuta le prestazioni di manovra dell'aeromobile eVTOL in condizioni di vento rafficato, attenendosi alle linee guida ADS-33, per garantire le qualità di gestione e la controllabilità dell'aeromobile.
+
+%La ricerca contribuisce al settore fornendo un framework avanzato per la modellazione della cellula aerodinamica, una metodologia robusta per l'integrazione del sistema di controllo e una valutazione approfondita delle prestazioni di manovra. Questi contributi sono significativi per la progettazione e il controllo dei futuri aeromobili eVTOL, offrendo spunti che possono migliorare la sicurezza dei voli e la capacità operativa.
+
+%La tesi si conclude con raccomandazioni per l'adozione di strumenti avanzati di modellazione, il potenziamento dell'integrazione del sistema di controllo e la conduzione di test di prestazione rigorosi. Sottolinea l'importanza di queste strategie nel promuovere il campo dell'ingegneria aerospaziale e lo sviluppo di sistemi di volo autonomi.
+%\\
+%\\
+%\textbf{Parole chiave:} Aeromobile eVTOL, MBDyn, Simulink, Prestazioni di Manovra, Strategie di Controllo, Modellazione della Cellula Aerodinamica, Dinamica del Volo, Dinamica Multibody, Progettazione di UAV
+
+
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+% --------------------------------------------------------------------------
+% NUMBERED CHAPTERS % Regular chapters following
+% --------------------------------------------------------------------------
+
+% LIST OF FIGURES 
+\listoffigures
+
+% LIST OF TABLES
+\listoftables
+
+\chapter*{Introduction}
+
+The advent of Unmanned Aerial Vehicles (UAVs) has ushered in a new era of aerial missions, particularly in urban environments, where complex maneuvers and stability are paramount. While various UAV types have emerged, multicopter stand out for their inherent instability, requiring sophisticated low-level stability control modules that have evolved into fully autonomous flight controllers over recent years. Rotary UAVs, in particular, have garnered interest for their versatility in missions ranging from short-range parcel delivery to close-range infrastructure inspection and even recreational drone racing.
+
+Despite extensive research in UAV control focusing on optimal control, obstacle detection, and autonomous navigation, there remains a significant gap in quantifying the high maneuverability and agility of small UAVs, particularly multicopter. As these vehicles evolve to different scales, maintaining agility becomes crucial for tasks such as countering turbulence and gusts, especially in confined areas during close-range inspections. Consequently, there's a pressing need for an objective test procedure to quantify a small UAV's maneuverability and agility, facilitating comparisons between prototypes and existing models.
+
+Although multicopter are widely adopted for their ease of use and affordability, they lack endurance for long-range missions, which has led to the exploration of fixed-wing UAVs. However, the requirement for a runway limits their applicability. Engineers have bridged this gap with the vertical take-off and landing (VTOL) configuration, combining the advantages of multicopter and fixed-wing UAVs. VTOL UAVs can take off and land vertically, hover, and cover long ranges due to their wings, making them increasingly popular in both civilian and military domains \cite{DeMori2021}.
+
+This thesis explores the integration of dynamics simulation using the MBDyn software with real-time control systems in Simulink to assess the maneuver performance of designed eVTOL drones. The computational aspects of general-purpose multibody simulation and recent improvements in MBDyn are discussed, highlighting the software's versatility in addressing various analysis needs, from real-time hardware-in-the-loop simulations to trajectory optimization. By combining simulation and control, this research aims to provide valuable insights into the maneuverability and agility of eVTOL drones, contributing to the advancement of UAV technology for diverse applications \cite{Zhang9460809}.
+
+\section*{Background}
+This thesis is the third part of the development of a VTOL UAV designed and built at Politecnico di Milano, Department of Aerospace Science and Technology (DAER). The initial design based on the basic requirements was presented in \cite{battaini2020}. The production and integration of the components, along with the development of a simulator, were carried out in \cite{martello2021}. The optimal structure, control system, and basic testing were completed in \cite{battaini2022}. This third thesis serves as the foundation for the present work, which involves building dynamics in MBDyn, simulating maneuvers, and optimizing the control system. The aircraft (figure \ref{fig:eVTOL UAV}) is an electric vertical takeoff and landing (eVTOL) vehicle powered by an 8500 mAh lithium-polymer battery that provides approximately 100 minutes of flight time. It is equipped with eight electric motors for vertical flight and two for forward flight. The aircraft has a wingspan of 2.25 m and weighs 6.4 kg. A technical representation of the aircraft is shown in Figure \ref{fig:Technical drawings}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Images/Technical drawings of the eVTOL UAV.png}
+    \caption{Technical drawings of the eVTOL UAV, scale 1:10. The measurements are given in mm.}
+    \label{fig:Technical drawings}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{Images/eVTOL UAV.png}
+    \caption{eVTOL UAV developed at P olitecnico di Milano from \cite{battaini2022}}
+    \label{fig:eVTOL UAV}
+\end{figure}
+
+\section*{Thesis Objectives}
+
+This thesis aims to achieve the following objectives:
+
+\begin{enumerate}
+    \item To develop an advanced airframe model of an eVTOL aircraft using MBDyn, a multibody dynamics software, ensuring accuracy and realism in simulating the aircraft's behavior in various flight conditions.
+    
+    \item To integrate the MBDyn model with Simulink for real-time data exchange and to establish a control system architecture that facilitates precise maneuvering and stability of the eVTOL aircraft.
+    
+    \item To conduct a comprehensive analysis of the eVTOL aircraft's maneuver performance, particularly focusing on its response and handling qualities in gusty wind conditions as per ADS-33 guidelines.
+    
+    \item To design and evaluate control strategies for the transition between multi-copter mode and fixed-wing mode in eVTOL aircraft, ensuring smooth and efficient mode switching.
+    
+    \item To propose a set of quantitative metrics for assessing the agility and maneuverability of eVTOL aircraft, drawing from both UAV-specific and manned aircraft literature.
+    
+    \item To establish a test procedure and setup for evaluating the maneuvering performance and agility metrics of the eVTOL aircraft through simulations and experimental validations.
+    
+    \item To identify areas of improvement and provide recommendations for the design and control of eVTOL aircraft, contributing to advancements in the field of aerospace engineering.
+\end{enumerate}
+
+These objectives form the foundation of the research and guide the investigation into the capabilities and performance of eVTOL aircraft.
+
+\section*{Structure of the Thesis}
+
+This thesis is meticulously organized to present a cohesive study on the maneuver performance, modeling, and control of an eVTOL aircraft. The structure is as follows:
+
+\begin{itemize}
+    \item \textbf{Chapter 1: MBDyn and Airframe Modeling}
+    This chapter introduces the fundamental principles of MBDyn, a multibody dynamics software package, and its application in constructing an accurate airframe model. The setup and verification process of the model are discussed in detail.
+    
+    \item \textbf{Chapter 2: Integration and Control of Subsystems}
+    Building upon the airframe model, this chapter outlines the integration process between MBDyn and Simulink. It presents the architecture of the control system, emphasizing the importance of reference frames and rotational principles in aerospace engineering and navigation.
+    
+    \item \textbf{Chapter 3: Maneuver Performance}
+    Chapter 3 evaluates the aircraft's maneuver performance, particularly its response to gust wind conditions as per ADS-33 guidelines. The chapter details the experimental setup, simulation results, and analysis of the aircraft's stability and controllability.
+\end{itemize}
+
+\input{chapt1}
+
+\input{chapt2}
+
+\input{chapt3}
+
+\input{chapt4}
+
+\bibliography{reference}
+
+% ACKNOWLEDGEMENTS
+\chapter*{Acknowledgments}
+
+I would like to express my deepest gratitude to my advisor, Professor Pierangelo Masarati, for his unwavering guidance, insightful advice, and invaluable support throughout the course of my research. His expertise and encouragement have been instrumental in the successful completion of this thesis.
+
+I am also profoundly grateful to my parents, whose unconditional love and support have been my foundation. Their sacrifices and belief in my potential have been my greatest source of motivation.
+
+Additionally, I extend my heartfelt thanks to my friends, whose camaraderie and encouragement have provided me with the strength to persevere during challenging times.
+
+This thesis would not have been possible without the collective support of these remarkable individuals. Thank you all for your immense contributions to my academic journey.
+
+\cleardoublepage
+
+\end{document}
