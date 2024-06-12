@@ -111,10 +111,10 @@
 \begin{document}
 
 \fancypagestyle{plain}{%
-\fancyhf{} % Clear all header and footer fields
-\fancyhead[RO,RE]{\thepage} %RO=right odd, RE=right even
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}}
+    \fancyhf{} % Clear all header and footer fields
+    \fancyhead[RO,RE]{\thepage} %RO=right odd, RE=right even
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}}
 
 %----------------------------------------------------------------------------
 %	TITLE PAGE
@@ -124,13 +124,13 @@
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the preamble pages
 
 \puttitle{
-	title= Modeling and Maneuverability Performance Analysis for eVTOL Aircraft, % Title of the thesis
-	name=Ruiyang Zhang, % Author Name and Surname
-	course=Aeronautical Engineering - Ingegneria Aeronautica, % Study Programme (in Italian)
-	ID  = 10829862,  % Student ID number (numero di matricola)
-	advisor= Prof. Pierangelo Masarati, % Supervisor name
-%	coadvisor={}, % Co-Supervisor name, remove this line if there is none
-	academicyear={2024-07}  % Academic Year
+    title= Modeling and Maneuverability Performance Analysis for eVTOL Aircraft, % Title of the thesis
+    name=Ruiyang Zhang, % Author Name and Surname
+    course=Aeronautical Engineering - Ingegneria Aeronautica, % Study Programme (in Italian)
+    ID  = 10829862,  % Student ID number (numero di matricola)
+    advisor= Prof. Pierangelo Masarati, % Supervisor name
+    %	coadvisor={}, % Co-Supervisor name, remove this line if there is none
+    academicyear={2024-07}  % Academic Year
 } % These info will be put into your Title page 
 
 %----------------------------------------------------------------------------
@@ -140,8 +140,8 @@
 \setcounter{page}{1} % Set page counter to 1
 
 % ABSTRACT IN ENGLISH
-\chapter*{Abstract} 
-This thesis presents a comprehensive study on the maneuver performance, modeling, and control strategies of an eVTOL aircraft, focusing on its ability to operate safely and efficiently in various flight conditions. The research leverages MBDyn, a multibody dynamics software, to develop a detailed airframe model that captures the six degrees of freedom inherent to eVTOL operations. 
+\chapter*{Abstract}
+This thesis presents a comprehensive study on the maneuver performance, modeling, and control strategies of an eVTOL aircraft, focusing on its ability to operate safely and efficiently in various flight conditions. The research leverages MBDyn, a multibody dynamics software, to develop a detailed airframe model that captures the six degrees of freedom inherent to eVTOL operations.
 
 The study is structured into three main chapters, each addressing a distinct yet interrelated aspect of eVTOL aircraft performance. Chapter 1 introduces the fundamental principles of MBDyn and discusses the setup and validation of the airframe model. Chapter 2 outlines the integration process between MBDyn and Simulink, detailing the control system architecture and its response to various maneuvers. Chapter 3 evaluates the maneuver performance of the eVTOL aircraft under gust wind conditions, adhering to ADS-33 guidelines, to ensure the aircraft's handling qualities and controllability.
 
@@ -212,17 +212,17 @@ This thesis aims to achieve the following objectives:
 
 \begin{enumerate}
     \item To develop an advanced airframe model of an eVTOL aircraft using MBDyn, a multibody dynamics software, ensuring accuracy and realism in simulating the aircraft's behavior in various flight conditions.
-    
+
     \item To integrate the MBDyn model with Simulink for real-time data exchange and to establish a control system architecture that facilitates precise maneuvering and stability of the eVTOL aircraft.
-    
+
     \item To conduct a comprehensive analysis of the eVTOL aircraft's maneuver performance, particularly focusing on its response and handling qualities in gusty wind conditions as per ADS-33 guidelines.
-    
+
     \item To design and evaluate control strategies for the transition between multi-copter mode and fixed-wing mode in eVTOL aircraft, ensuring smooth and efficient mode switching.
-    
+
     \item To propose a set of quantitative metrics for assessing the agility and maneuverability of eVTOL aircraft, drawing from both UAV-specific and manned aircraft literature.
-    
+
     \item To establish a test procedure and setup for evaluating the maneuvering performance and agility metrics of the eVTOL aircraft through simulations and experimental validations.
-    
+
     \item To identify areas of improvement and provide recommendations for the design and control of eVTOL aircraft, contributing to advancements in the field of aerospace engineering.
 \end{enumerate}
 
@@ -234,13 +234,13 @@ This thesis is meticulously organized to present a cohesive study on the maneuve
 
 \begin{itemize}
     \item \textbf{Chapter 1: MBDyn and Airframe Modeling}
-    This chapter introduces the fundamental principles of MBDyn, a multibody dynamics software package, and its application in constructing an accurate airframe model. The setup and verification process of the model are discussed in detail.
-    
+          This chapter introduces the fundamental principles of MBDyn, a multibody dynamics software package, and its application in constructing an accurate airframe model. The setup and verification process of the model are discussed in detail.
+
     \item \textbf{Chapter 2: Integration and Control of Subsystems}
-    Building upon the airframe model, this chapter outlines the integration process between MBDyn and Simulink. It presents the architecture of the control system, emphasizing the importance of reference frames and rotational principles in aerospace engineering and navigation.
-    
+          Building upon the airframe model, this chapter outlines the integration process between MBDyn and Simulink. It presents the architecture of the control system, emphasizing the importance of reference frames and rotational principles in aerospace engineering and navigation.
+
     \item \textbf{Chapter 3: Maneuver Performance}
-    Chapter 3 evaluates the aircraft's maneuver performance, particularly its response to gust wind conditions as per ADS-33 guidelines. The chapter details the experimental setup, simulation results, and analysis of the aircraft's stability and controllability.
+          Chapter 3 evaluates the aircraft's maneuver performance, particularly its response to gust wind conditions as per ADS-33 guidelines. The chapter details the experimental setup, simulation results, and analysis of the aircraft's stability and controllability.
 \end{itemize}
 
 \input{chapt1}
